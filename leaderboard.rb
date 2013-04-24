@@ -42,7 +42,6 @@ class Leaderboard
     end
 
     def get_range(start, count)
-        p [start, count]
         @r.zrange(@id, start, start + count, with_scores: true).map.with_index do |pair, i|
             Entry.new *pair, start + i + 1
         end
